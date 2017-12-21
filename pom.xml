@@ -33,7 +33,7 @@
   </dependencies>
 </project>
 
-<settings>
+<!-- <settings>
     <pluginGroups>
         <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
     </pluginGroups>
@@ -44,9 +44,37 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <!-- Optional URL to server. Default value is http://localhost:9000 -->
+                Optional URL to server. Default value is http://localhost:9000
                 <sonar.host.url>http://localhost:9000</sonar.host.url>
             </properties>
         </profile>
      </profiles>
-</settings>
+</settings> -->
+
+
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.jacoco</groupId>
+      <artifactId>jacoco-maven-plugin</artifactId>
+      <version>0.6.4.201312101107</version>
+      <executions>
+        <execution>
+          <id>pre-unit-test</id>
+          <goals>
+            <goal>prepare-agent</goal>
+          </goals>
+        </execution>
+        <execution>
+          <id>post-unit-test</id>
+          <phase>test</phase>
+          <goals>
+            <goal>report</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+  </plugins>
+</build>
+
+</project>
