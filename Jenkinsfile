@@ -25,7 +25,7 @@
 try {
     currentBuild.result = 'SUCCESS'
 
-    node ('jenkins-mvn') {
+    node ('master') {
 
     	//=============================================================================================
 	    // Stage "Compile", "Static Analysis", "Tests" will:
@@ -35,6 +35,7 @@ try {
 	    //=============================================================================================
 
 	    stage ('Compile') {
+            echo "Compile :: START"
             checkout scm
             // NTUC sh "sudo chmod -R 755 build-env/* && dos2unix ./build-env/*.sh && ./build-env/jenkins-validate-archiva.sh && ./build-env/jenkins-compile.sh"
             // NTUC sh "sudo mkdir -p $ARTIFACT_LOCATION && sudo cp -R ./build-env $ARTIFACT_LOCATION && sudo cp -R ./cloud-formation $ARTIFACT_LOCATION  && sudo chown -R jenkins $ARTIFACT_LOCATION"
@@ -43,19 +44,28 @@ try {
             //added to tag git commit for upper environment deployment
             // NTUC gitCommit = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
 			// NTUC shortCommit = gitCommit.take(6)
+
+            echo "Compile :: END"
             
         }
 		stage ('Static Analysis') {
+
+            echo "Static Analysis :: START"
             // NTUC sh "$ARTIFACT_LOCATION/build-env/jenkins-test-static-analysis.sh"
             //runSonarScan(env.SONAR_URL)
+
+            echo "Static Analysis :: END"
         }
         stage ('Tests') {
+            echo "Tests :: START"
         	//Provision access for AWS IAM role with RT Cross Account credentials file.
             //sh "/build/obtain-cross-account-credentials.sh ${AWS_RT_IAM_CROSS_ACCOUNT}"
 			// NTUC sh "/build/obtain-cross-account-credentials.sh ${AWS_RT_IAM_CROSS_ACCOUNT_CONFIG_DT}"
 
             //Unit Tests need access to AWS Elastic Search.
       	    // NTUC sh "$ARTIFACT_LOCATION/build-env/jenkins-test-unit-test.sh"
+
+            echo "Tests :: END"
        	}
     }
 }
