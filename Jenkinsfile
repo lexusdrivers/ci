@@ -37,7 +37,7 @@ try {
 	    stage ('Compile') {
             echo "Compile :: START"
             checkout scm
-            // NTUC sh "sudo chmod -R 755 build-env/* && dos2unix ./build-env/*.sh && ./build-env/jenkins-validate-archiva.sh && ./build-env/jenkins-compile.sh"
+            sh "sudo chmod -R 755 buildenv/* && dos2unix ./buildenv/*.sh && ./buildenv/jenkins-compile.sh"
             // NTUC sh "sudo mkdir -p $ARTIFACT_LOCATION && sudo cp -R ./build-env $ARTIFACT_LOCATION && sudo cp -R ./cloud-formation $ARTIFACT_LOCATION  && sudo chown -R jenkins $ARTIFACT_LOCATION"
 			//&& sudo cp -R ./app/src/main/resources/apps $ARTIFACT_LOCATION/apps 
             
