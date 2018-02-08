@@ -63,7 +63,7 @@ try {
 			// NTUC sh "/build/obtain-cross-account-credentials.sh ${AWS_RT_IAM_CROSS_ACCOUNT_CONFIG_DT}"
 
             //Unit Tests need access to AWS Elastic Search.
-      	    // NTUC sh "$ARTIFACT_LOCATION/build-env/jenkins-test-unit-test.sh"
+      	    sh "./buildenv/jenkins-test-unit-test.sh"
 
             echo "Tests :: END"
        	}
