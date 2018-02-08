@@ -7,7 +7,7 @@
 // Constants and Parameters Definitions :: START
 //=====================================================
 
-env.SONAR_URL = 'http://ec2-54-193-65-212.us-west-1.compute.amazonaws.com:9000/'
+env.SONAR_URL = 'http://ec2-54-157-223-190.compute-1.amazonaws.com:9000/'
 
 
 
