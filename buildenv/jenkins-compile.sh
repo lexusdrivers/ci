@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash 
 
 # This script should run the initial compilation of anything consumed
 # by static analysis or unit tests.
@@ -8,7 +8,7 @@ mvn clean package -DskipTests=true
 #Above command returns success(0) or failure(1) message to $? after executing pom.xml . Stop execution of build for failure.
 cleanPackageResult=$?
 if [[ $cleanPackageResult -ne 0 ]] ; then
-  echo 'Could not perform clean package .' 
+  echo 'Could not perform clean package .'
   exit 1
 fi
 echo "Build Successful"
