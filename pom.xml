@@ -54,7 +54,7 @@
 
 <build>
   <plugins>
-    <plugin>
+    <!-- <plugin>
       <groupId>org.jacoco</groupId>
       <artifactId>jacoco-maven-plugin</artifactId>
       <version>0.6.4.201312101107</version>
@@ -73,7 +73,7 @@
           </goals>
         </execution>
       </executions>
-    </plugin>
+    </plugin>-->
     <plugin>
         <groupId>org.sonarsource.scanner.maven</groupId>
         <artifactId>sonar-maven-plugin</artifactId>
