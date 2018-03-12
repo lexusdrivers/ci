@@ -7,7 +7,7 @@
 // Constants and Parameters Definitions :: START
 //=====================================================
 
-env.SONAR_URL = 'http://ec2-54-157-223-190.compute-1.amazonaws.com:9000/'
+env.SONAR_URL = 'http://devops-Je-SonarQub-2A0PMN0PDK9O-407290823.us-west-2.elb.amazonaws.com/'
 
 
 
@@ -51,8 +51,8 @@ try {
 		stage ('Static Analysis') {
 
             echo "Static Analysis :: START"
-          //  sh "./buildenv/jenkins-test-static-analysis.sh"
-            //runSonarScan(env.SONAR_URL)
+            sh "./buildenv/jenkins-test-static-analysis.sh"
+            runSonarScan(env.SONAR_URL)
 
             echo "Static Analysis :: END"
         }
@@ -63,7 +63,7 @@ try {
 			// NTUC sh "/build/obtain-cross-account-credentials.sh ${AWS_RT_IAM_CROSS_ACCOUNT_CONFIG_DT}"
 
             //Unit Tests need access to AWS Elastic Search.
-      	  //  sh "./buildenv/jenkins-test-unit-test.sh"
+      	    sh "./buildenv/jenkins-test-unit-test.sh"
 
             echo "Tests :: END"
        	}
