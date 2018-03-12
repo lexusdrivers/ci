@@ -52,7 +52,7 @@ try {
 
             echo "Static Analysis :: START"
             sh "./buildenv/jenkins-test-static-analysis.sh"
-            runSonarScan(env.SONAR_URL)
+            //runSonarScan(env.SONAR_URL)
 
             echo "Static Analysis :: END"
         }
